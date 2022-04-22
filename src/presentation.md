@@ -72,5 +72,3 @@ function generateCapacitySymbol({ maxCapacity, availableCapacity }) {
 ---
 
 <!-- .slide: data-background-image="./assets/EndSlide.png"; .slide: data-background-size="cover" -->
-
-# Thank You!
