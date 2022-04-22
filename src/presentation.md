@@ -6,6 +6,14 @@
 
 ---
 
+<iframe height="640px" style="width: 100%;" scrolling="no" title="CIM Symbol Testing Ground" src="https://codepen.io/JDawe/embed/abmpXwp?default-tab=js%2Cresult&editable=true&theme-id=dark" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/JDawe/pen/abmpXwp">
+  CIM Symbol Testing Ground</a> by Jonathan Dawe (<a href="https://codepen.io/JDawe">@JDawe</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+---
+
 <!-- .slide: data-background-image="./assets/MainSlide.png"; .slide: data-background-size="cover" -->
 
 ## [ArcGIS Platform](https://www.esri.com/about/newsroom/arcnews/arcgis-platform-gives-developers-direct-access-to-location-services/)
