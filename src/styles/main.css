@@ -63,8 +63,8 @@ section.has-dark-background h6 {
     --r-code-size: 0.45em;
     --r-code-font: monospace;
     --r-link-color: hsl(154, 100%, 46%);
-    --r-link-color-dark: hsl(154, 100%, 35%);
-    --r-link-color-hover: hsl(154, 100%, 50%);
+    --r-link-color-dark: hsl(154, 100%, 32%);
+    --r-link-color-hover: hsl(156, 80%, 58%);
     --r-selection-background-color: rgba(0, 0, 0, 0.99);
     --r-selection-color: #fff;
     --scrollbarBG: #cfd8dc;

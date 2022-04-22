@@ -8,6 +8,14 @@
 
 <!-- .slide: data-background-image="./assets/MainSlide.png"; .slide: data-background-size="cover" -->
 
+## [ArcGIS Platform](https://www.esri.com/about/newsroom/arcnews/arcgis-platform-gives-developers-direct-access-to-location-services/)
+
+<img style="height:640px; width:auto" src="./assets/ArcGISPlatform.png">
+
+---
+
+<!-- .slide: data-background-image="./assets/MainSlide.png"; .slide: data-background-size="cover" -->
+
 ## [Simple JS Demo](https://github.com/Esri/cim-spec/blob/master/docs/v2/CIMSymbols.md#cimpointsymbol)
 
 [`new CIMSymbol()`](https://developers.arcgis.com/javascript/latest/api-reference/esri-symbols-CIMSymbol.html#constructors-summary) - create custom multi-vector symbols
@@ -62,3 +70,7 @@ function generateCapacitySymbol({ maxCapacity, availableCapacity }) {
 </div>
 
 ---
+
+<!-- .slide: data-background-image="./assets/EndSlide.png"; .slide: data-background-size="cover" -->
+
+# Thank You!
