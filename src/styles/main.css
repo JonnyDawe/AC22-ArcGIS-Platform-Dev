@@ -139,6 +139,7 @@ section.has-dark-background h6 {
 
 .reveal h4 {
     font-size: var(--r-heading4-size);
+    text-align: left;
 }
 
 .reveal h1 {
@@ -267,7 +268,7 @@ section.has-dark-background h6 {
     display: block;
     padding: 5px;
     overflow: auto;
-    max-height: 400px;
+    max-height: 600px;
     word-wrap: normal;
 }
 
@@ -430,6 +431,10 @@ section.has-dark-background h6 {
         -webkit-linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
         -webkit-linear-gradient(0, rgba(255, 255, 255, 0.025) 1px, transparent
                     1px);
+}
+
+.reveal .two-col .lists {
+    margin: auto;
 }
 
 .reveal .snippets p {
