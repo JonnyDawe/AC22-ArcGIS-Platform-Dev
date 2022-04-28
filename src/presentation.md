@@ -6,11 +6,17 @@
 
 ---
 
-<iframe height="640px" style="width: 100%;" scrolling="no" title="CIM Symbol Testing Ground" src="https://codepen.io/JDawe/embed/abmpXwp?default-tab=js%2Cresult&editable=true&theme-id=dark" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/JDawe/pen/abmpXwp">
-  CIM Symbol Testing Ground</a> by Jonathan Dawe (<a href="https://codepen.io/JDawe">@JDawe</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
+<!-- .slide: data-background-image="./assets/MainSlide.png"; .slide: data-background-size="cover" -->
+
+## [ArcGIS is an API](https://developers.arcgis.com/rest/services-reference/enterprise/get-started-with-the-services-directory.htm)
+
+<img style="height:640px; width:auto" src="./assets/ArcGISRESTAPI.png">
+
+---
+
+<!-- .slide: data-background-image="./assets/MainSlide.png"; .slide: data-background-size="cover" -->
+
+<img style="height:640px; width:auto" src="./assets/jsontomap.png">
 
 ---
 
@@ -22,58 +28,84 @@
 
 ---
 
+<!-- .slide: data-background-image="./assets/DemoLinkSlide.png"; .slide: data-background-size="cover" -->
+
+# [developers.arcgis.com](https://developers.arcgis.com/)
+
+---
+
+<!-- .slide: data-background-image="./assets/MainSlide.png"; .slide: data-background-size="cover" -->
+
+# ArcGIS JavaScript API
+
+#### Powerful visualisation, smart mapping and analytics capabilities <!-- .element: class="fragment" data-fragment-index="1" -->
+
+#### Create interactive 2D and 3D user experiences <!-- .element: class="fragment" data-fragment-index="2" -->
+
+#### Highly Tailored functionality work seamlessly with ArcGIS Services and Items <!-- .element: class="fragment" data-fragment-index="3" -->
+
+#### Modular design (e.g ES modules and AMD) - only use what you need! <!-- .element: class="fragment" data-fragment-index="4" -->
+
+---
+
 <!-- .slide: data-background-image="./assets/MainSlide.png"; .slide: data-background-size="cover" -->
 
 ## [Simple JS Demo](https://github.com/Esri/cim-spec/blob/master/docs/v2/CIMSymbols.md#cimpointsymbol)
 
-[`new CIMSymbol()`](https://developers.arcgis.com/javascript/latest/api-reference/esri-symbols-CIMSymbol.html#constructors-summary) - create custom multi-vector symbols
-
 <div class="two-col">
   <div class="snippets full-height-blocks">
   
-Simple Point CIM Symbol: 
+Add a layer to a map: 
     <div class="snippet">
 
-```js [1|3-15|1-15]
-const symbol = new CIMSymbol({
-  data:{
-    type: "CIMSymbolReference",
-    symbol: {
-       type: "CIMPointSymbol",
-       symbolLayers: [{
-          type: 'CIMVectorMarker',
-          markerGraphics:[...
-            // CIMTextSymbol
-            // CIMMarkerSymbols
-        ]
-      }]
-    }
-  }
-});
+```js
+esriConfig.apiKey = 'YOUR_API_KEY'
+
+const cycleRoute = new FeatureLayer({
+    url: 'https://services6.arcgis.com/ujpPLfH38KAX8unh/arcgis/rest/services/BristolCyclewithHR/FeatureServer',
+})
+
+const map = new Map({
+    layers: [cycleRoute],
+    basemap: 'arcgis-topographic',
+})
+
+const view = new MapView({
+    container: 'viewDiv',
+    center: [-2.7, 51.452],
+    zoom: 12,
+    map: map,
+})
 ```
 
-<svg data-play-frame="frame-cim-points" data-play-argument="simple" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
+<svg data-play-frame="frame-simpleMap" data-play-argument="createMap" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
 
   </div>
 
-Construct Attribute Driven Symbols:
+Use an existing styled WebMap
 
 <div class="snippet">
 
-```js [1|1-5]
-// Generate a Symbol based on the current available capacity of the carpark
-function generateCapacitySymbol({ maxCapacity, availableCapacity }) {
-    let fractionFilled = (maxCapacity - availableCapacity) / maxCapacity
-    return new CIMSymbol({})
-}
+```js
+const webmap = new WebMap({
+    portalItem: {
+        // autocasts as new PortalItem()
+        id: '1dfc6a86e2934907ae8424a25e5be23d',
+    },
+})
+
+const view = new MapView({
+    map: webmap,
+    container: 'viewDiv',
+})
 ```
 
-<svg data-play-frame="frame-cim-points" data-play-argument="complex" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
+<svg data-play-frame="frame-simpleMap" data-play-argument="createWebMap" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
 
   </div>
 </div>
   <div class="snippet-preview">
-    <iframe id="frame-cim-points" data-src="./snippet.html?cim-points"></iframe>
+    <iframe id="frame-simpleMap" data-src="./snippet.html?cycleMap2D"></iframe>
   </div>
 </div>
 
