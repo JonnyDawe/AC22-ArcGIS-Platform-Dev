@@ -12,10 +12,19 @@ import Highlight from 'reveal.js/plugin/highlight/highlight.esm.js'
         margin: 0.04,
 
         plugins: [Markdown, Highlight],
+        markdown: {
+            smartLists: true,
+            smartypants: true,
+        },
     })
     .then(() => {
         let playButtons = document.querySelectorAll('[data-play-frame]')
         let inputs = document.querySelectorAll('[data-input-frame]')
+
+        //make all links open in an external tab
+        let e = document.createElement('base')
+        e.target = '_blank'
+        document.head.appendChild(e)
 
         for (let i = 0; i < playButtons.length; i++) {
             playButtons[i].addEventListener(
