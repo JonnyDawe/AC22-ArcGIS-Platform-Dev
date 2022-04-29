@@ -17,6 +17,7 @@
     "license": "ISC",
     "dependencies": {
         "@arcgis/core": "^4.20.2",
+        "@tmcw/togeojson": "^5.1.2",
         "reveal.js": "^4.1.3"
     },
     "devDependencies": {

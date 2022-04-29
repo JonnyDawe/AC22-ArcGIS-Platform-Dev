@@ -50,7 +50,7 @@
 
 <!-- .slide: data-background-image="./assets/MainSlide.png"; .slide: data-background-size="cover" -->
 
-## [2D Map Demo](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html)
+## [ArcGIS JS Demo](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html)
 
 <div class="two-col">
   <div class="snippets full-height-blocks">
@@ -66,7 +66,7 @@ const cycleRoute = new FeatureLayer({
 
 const map = new Map({
     layers: [cycleRoute],
-    basemap: 'arcgis-topographic',
+    basemap: 'arcgis-imagery-standard',
 })
 
 const view = new MapView({
@@ -102,6 +102,64 @@ const view = new MapView({
 <svg data-play-frame="frame-simpleMap" data-play-argument="createWebMap" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
 
 </div>
+
+Add a Widget
+
+<div class="snippet">
+
+```js
+const elevationProfile = new ElevationProfile({
+    view: view,
+    profiles: [
+        new ElevationProfileLineInput({
+            color: [245, 203, 66],
+            title: 'Bicycle track',
+        }),
+    ],
+    visibleElements: {
+        selectButton: false,
+        sketchButton: false,
+        settingsButton: false,
+    },
+})
+view.ui.add(elevationProfile, 'bottom-right')
+cycleRoute.queryFeatures().then(function (results) {
+    elevationProfile.input = results.features[0]
+})
+```
+
+<svg data-play-frame="frame-simpleMap" data-play-argument="addElevationWidget" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
+
+</div>
+
+Create a WebScene
+
+<div class="snippet">
+
+```js
+view = new SceneView({
+    map: map,
+    container: 'viewDiv',
+    qualityProfile: 'high',
+    camera: {
+        position: new Point({
+            x: -288039,
+            y: 6706776,
+            z: 4168,
+            spatialReference: {
+                wkid: 102100,
+            },
+        }),
+        heading: 237,
+        tilt: 60,
+    },
+})
+```
+
+<svg data-play-frame="frame-simpleMap" data-play-argument="createWebScene" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
+
+</div>
+
 </div>
   <div class="snippet-preview">
     <iframe id="frame-simpleMap" data-src="./snippet.html?cycleMap2D"></iframe>

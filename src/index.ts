@@ -3,6 +3,25 @@ import './styles/main.css'
 import Reveal from 'reveal.js'
 import Markdown from 'reveal.js/plugin/markdown/markdown.esm.js'
 import Highlight from 'reveal.js/plugin/highlight/highlight.esm.js'
+
+declare global {
+    interface Document {
+        mozCancelFullScreen?: () => Promise<void>
+        msExitFullscreen?: () => Promise<void>
+        webkitExitFullscreen?: () => Promise<void>
+        mozFullScreenElement?: Element
+        msFullscreenElement?: Element
+        webkitFullscreenElement?: Element
+        webkitCurrentFullScreenElement?: Element
+    }
+
+    interface HTMLElement {
+        msRequestFullscreen?: () => Promise<void>
+        mozRequestFullscreen?: () => Promise<void>
+        webkitRequestFullscreen?: () => Promise<void>
+    }
+}
+
 ;(Reveal as RevealStatic)
     .initialize({
         center: true,
@@ -18,6 +37,26 @@ import Highlight from 'reveal.js/plugin/highlight/highlight.esm.js'
         },
     })
     .then(() => {
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.type === 'fullscreen') {
+                if (document.webkitCurrentFullScreenElement) {
+                    document.webkitExitFullscreen()
+                    return
+                }
+
+                var iframes = document.querySelectorAll('iframe')
+
+                for (var i = 0; i < iframes.length; i++) {
+                    var iframe = iframes[i]
+
+                    if (iframe.contentWindow === event.source) {
+                        iframe.webkitRequestFullscreen()
+                        return
+                    }
+                }
+            }
+        })
+
         let playButtons = document.querySelectorAll('[data-play-frame]')
         let inputs = document.querySelectorAll('[data-input-frame]')
 
