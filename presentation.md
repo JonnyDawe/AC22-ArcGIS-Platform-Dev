@@ -159,7 +159,6 @@ view = new SceneView({
 <svg data-play-frame="frame-simpleMap" data-play-argument="createWebScene" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
 
 </div>
-
 </div>
   <div class="snippet-preview">
     <iframe id="frame-simpleMap" data-src="./snippet.html?cycleMap2D"></iframe>
@@ -178,20 +177,20 @@ view = new SceneView({
 
 #### [Esri Leaflet](https://developers.arcgis.com/esri-leaflet/)
 
--   Leaflet Plugin introducing new classes
--   Support for Vector Tile Services, Hosted Feature Services and other Premium Services
+-   Leaflet Plugin extending existing classes <!-- .element: class="fragment" data-fragment-index="1" -->
+-   Support for Vector Tile Services, Hosted Feature Layers and other Premium Services <!-- .element: class="fragment" data-fragment-index="1" -->
 
 #### [Mapbox GL JS](https://developers.arcgis.com/esri-leaflet/key-features/)
 
--   Open standard of ArcGIS REST API and Services allows for easy implementation of into your mapbox application
--   Makes use of the ArcGIS REST JS
--   Many of Mapbox' premium features have an Esri counterpart that can be used instead
+-   ArcGIS REST API and Services follow open standards that allow for easy implementation into your Mapbox application <!-- .element: class="fragment" data-fragment-index="2" -->
+-   Makes use of ArcGIS REST JS <!-- .element: class="fragment" data-fragment-index="2" -->
+-   Many of Mapbox's premium features can be replaced by an Esri counterpart <!-- .element: class="fragment" data-fragment-index="2" -->
 
 ---
 
 <!-- .slide: data-background-image="./assets/MainSlide.png"; .slide: data-background-size="cover" -->
 
-### Demo application: _Where is my coffee_?
+### Demo: _Where is my coffee_?
 
 <div class="two-col">
 <div class="lists">
@@ -309,9 +308,9 @@ map.addLayer({
 #### [ArcGIS REST JS](https://developers.arcgis.com/arcgis-rest-js/)
 
 <ul style="margin: 0 0 0 -8em;">
-  <li>light-weight collection of JavaScript modules</li>
+  <li>Collection of light-weight JavaScript modules</li>
   <li>JavaScript wrapper for the ArcGIS REST API</li>
-  <li>simplifies execution of workflows that utilise the ArcGIS REST API</li>
+  <li>Simplifies execution of common GIS workflows</li>
 </ul>
 
 ```
@@ -504,6 +503,20 @@ function updateServiceAreas(coordinates) {
   AC22_Demo3</a> by Kristian (<a href="https://codepen.io/anonymous_kris">@anonymous_kris</a>)
   on <a href="https://codepen.io">CodePen</a>.
 </iframe>
+
+---
+
+<!-- .slide: data-background-image="./assets/MainSlide.png"; .slide: data-background-size="cover" -->
+
+### Recap
+
+-   ArcGIS Platform provides a simple way to integrate ArcGIS capabilities into your applications
+-   Easy to get started with a free Developer Account
+-   Choose the path of least resistance
+    -   If you are starting from scratch -> ArcGIS API for JavaScript <!-- .element: class="fragment" data-fragment-index="1" -->
+    -   Existing application or special requirements -> Third-party application <!-- .element: class="fragment" data-fragment-index="2" -->
+
+**Meet us at the developer stand during the break!** <!-- .element: class="fragment" data-fragment-index="3" -->
 
 ---
 
