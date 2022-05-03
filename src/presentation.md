@@ -183,7 +183,7 @@ view = new SceneView({
 #### [Mapbox GL JS](https://developers.arcgis.com/esri-leaflet/key-features/)
 
 -   ArcGIS REST API and Services follow open standards that allow for easy implementation into your Mapbox application <!-- .element: class="fragment" data-fragment-index="2" -->
--   Makes use of ArcGIS REST JS <!-- .element: class="fragment" data-fragment-index="2" -->
+-   Utilises ArcGIS REST JS <!-- .element: class="fragment" data-fragment-index="2" -->
 -   Many of Mapbox's premium features can be replaced by an Esri counterpart <!-- .element: class="fragment" data-fragment-index="2" -->
 
 ---
@@ -196,7 +196,7 @@ view = new SceneView({
 <div class="lists">
 
 1. Update the basemap
-2. Bring in data from an AGOL Hosted Feature Layer
+2. Bring in data from a Hosted Feature Layer
 3. Find cafés within a 5 minute walking distance
  </div>
   <div class="snippet-preview">
@@ -251,7 +251,7 @@ const map = new mapboxgl.Map({
 
 <!-- .slide: data-background-image="./assets/MainSlide.png"; .slide: data-background-size="cover" -->
 
-2. Bring in data from an AGOL Hosted Feature Layer
+2. Add data from a [Hosted Feature Layer](https://services1.arcgis.com/iLnjttk8pGiISSJD/arcgis/rest/services/Esri_UK_Office_View/FeatureServer/0/query?where=1=1&outFields=*&f=pgeojson)
 
 ```js [1-5|4|7-35]
 //Lets add some data:
