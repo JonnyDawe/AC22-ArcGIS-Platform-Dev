@@ -215,14 +215,14 @@ view = new SceneView({
 
 1. Update the [basemap](https://developers.arcgis.com/documentation/mapping-apis-and-services/maps/services/basemap-layer-service/)
 
-```js [1-2|4-9|13]
+```js [5-7|9-11|15]
 //Mapbox API Key
 mapboxgl.accessToken =
     'pk.eyJ1IjoiYW5vbnltb3VzLWtyaXMiLCJhIjoiY2wxdnpjYzF1MDJ1ejNqazBleXI0OWxodSJ9.rReyRH5OWGkctU2RAK8ZhQ'
 
 //ArcGIS API Key
 const apiKey =
-    'AAPK2b935e8bbf564ef581ca3c6fcaa5f2a71ZH84cPqqFvyz3KplFRHP8HyAwJJkh6cnpcQ-qkWh5aiyDQsGJbsXglGx0QM2cPm'
+    'AAPKa22509eb293340718de64c0a7c02cad1_WUahdFNN64BsEwfrIltOU_4ks7vB99YuhF8gtyGCu-AofMp3K4KewgSDsHURMZ3'
 
 //Esri Basemap
 const basemapEnum = 'ArcGIS:Navigation'
