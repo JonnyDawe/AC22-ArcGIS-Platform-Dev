@@ -7,12 +7,14 @@ import Point from '@arcgis/core/geometry/Point'
 import ElevationProfile from '@arcgis/core/widgets/ElevationProfile'
 import ElevationProfileLineInput from '@arcgis/core/widgets/ElevationProfile/ElevationProfileLineInput'
 import SceneView from '@arcgis/core/views/SceneView'
+import SimpleRenderer from '@arcgis/core/renderers/SimpleRenderer'
+import SimpleLineSymbol from '@arcgis/core/symbols/SimpleLineSymbol'
 import { createFullscreen } from './support/widgets'
 
 esriConfig.apiKey =
     'AAPK12c550186e89437eabd142dc25e38ffejJcm_OaVKLyDKXjPixhzrIutnAYTqTM4KpmLZ-dTeTxU_v2MNchG8UIvu6omAynq'
 
-const cycleRoute = new FeatureLayer({
+let cycleRoute = new FeatureLayer({
     url: 'https://services6.arcgis.com/ujpPLfH38KAX8unh/arcgis/rest/services/BristolCyclewithHR/FeatureServer',
     hasZ: true,
 })
@@ -108,6 +110,15 @@ function instantiateElevationWidget() {
     })
 }
 
+function updateRenderer() {
+    cycleRoute.renderer = new SimpleRenderer({
+        symbol: new SimpleLineSymbol({
+            width: 2,
+            color: '#ffd300',
+        }),
+    })
+}
+
 window.addEventListener(
     'message',
     function (m) {
@@ -123,6 +134,11 @@ function play(message: string) {
         case 'createMap':
             instantiateMap()
             break
+
+        case 'updateRenderer':
+            updateRenderer()
+            break
+
         case 'createWebMap':
             instantiateWebMap()
             break

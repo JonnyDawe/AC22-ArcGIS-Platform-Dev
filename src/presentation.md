@@ -54,13 +54,16 @@
 
 <div class="two-col">
   <div class="snippets full-height-blocks">
-    Add a layer to a map: 
+
+[Add a layer to a map:](https://developers.arcgis.com/javascript/latest/add-a-feature-layer/)
+
 <div class="snippet">
 
 ```js
-esriConfig.apiKey = 'YOUR_API_KEY'
+esriConfig.apiKey =
+    'AAPK12c550186e89437eabd142dc25e38ffejJcm_OaVKLyDKXjPixhzrIutnAYTqTM4KpmLZ-dTeTxU_v2MNchG8UIvu6omAyn'
 
-const cycleRoute = new FeatureLayer({
+let cycleRoute = new FeatureLayer({
     url: 'https://services6.arcgis.com/ujpPLfH38KAX8unh/arcgis/rest/services/BristolCyclewithHR/FeatureServer',
 })
 
@@ -81,7 +84,26 @@ const view = new MapView({
 
 </div>
 
-Use an existing styled WebMap
+[Add styling](https://developers.arcgis.com/javascript/latest/visualization/location-styles/)
+
+<div class="snippet">
+
+```js
+const renderer = new SimpleRenderer({
+    symbol: new SimpleLineSymbol({
+        width: 2,
+        color: '#ffd300',
+    }),
+})
+
+cycleRoute.renderer = renderer
+```
+
+<svg data-play-frame="frame-simpleMap" data-play-argument="updateRenderer" class="play-code" viewBox="0 0 24 24"><path fill="#999" d="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" /></svg>
+
+</div>
+
+[Use an existing styled WebMap](https://developers.arcgis.com/javascript/latest/display-a-web-map/)
 
 <div class="snippet">
 
@@ -103,7 +125,7 @@ const view = new MapView({
 
 </div>
 
-Add a Widget
+[Add a Widget](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-ElevationProfile.html)
 
 <div class="snippet">
 
@@ -132,7 +154,7 @@ cycleRoute.queryFeatures().then(function (results) {
 
 </div>
 
-Create a WebScene
+[Create a Scene](https://developers.arcgis.com/javascript/latest/display-a-scene/)
 
 <div class="snippet">
 
