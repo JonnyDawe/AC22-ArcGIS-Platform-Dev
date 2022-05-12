@@ -428,7 +428,7 @@ map.addLayer({
 
 <!-- .slide: data-background-image="./assets/MainSlide.png"; .slide: data-background-size="cover" -->
 
-```js [1|11-23|30-41|68-82]
+```js [1|11-23|31-44]
 //Change Area
 function updateServiceAreas(coordinates) {
     const point = {
@@ -458,44 +458,6 @@ function updateServiceAreas(coordinates) {
             const geometry = Terraformer.geojsonToArcGIS(feature.geometry);
             const geometryType = "esriGeometry" + feature.geometry.type;
 
-            arcgisRest
-                .queryDemographicData({
-                    authentication: authentication,
-                    studyAreas: [
-                        {
-                            geometry: geometry,
-                            geometryType: geometryType
-                        },
-                    ],
-                    dataCollections: ["KeyGlobalFacts",],
-                    analysisVariables: ["KeyFacts.PPPC_CY"]
-                })
-                .then((response) => {
-                    const data = document.getElementById("data");
-                    const featureSet = response.results[0].value.FeatureSet;
-
-                    let message;
-                    if (featureSet.length > 0 && featureSet[0].features.length > 0) {
-                        const attributes = featureSet[0].features[0].attributes;
-                        message =
-                            `<b>Coffee shops within 2 and 5 minute walking areas</b></br>` +
-                            [
-                                `Population: ${attributes.TOTPOP}`,
-                                `Average Household Size: ${attributes.AVGHHSZ}`,
-                                `Purchasing Power per capita: £${attributes.PPPC_CY}`
-                            ].join("<br>");
-                    } else {
-                        message = "Data not available for this location.";
-                    }
-                    popup = new mapboxgl.Popup({ offset: [-150, -150] }).setHTML(message).setLngLat(coordinates).addTo(map);
-
-                    loading = false;
-                })
-                .catch((error) => {
-                    alert("There was a problem querying demographic data. See the console for details.");
-                    console.error(error);
-                    loading = false;
-                });
             // get cafes within this polygon
             arcgisRest
                 .geocode({
