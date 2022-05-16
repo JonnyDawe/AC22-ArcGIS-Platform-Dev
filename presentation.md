@@ -1,6 +1,6 @@
 ## Discovering what's available with ArcGIS Platform and JavaScript
 
-[bit.ly/ac22devjs](https://bit.ly/ac22devjs)
+[bit.ly/ac22jsdev](https://bit.ly/ac22jsdev)
 
 <div class="name-title"> Jonny Dawe ⚡ Kristian Kaesinger  </div>
 
