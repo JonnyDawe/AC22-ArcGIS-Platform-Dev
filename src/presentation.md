@@ -212,7 +212,7 @@ view = new SceneView({
 
 <!-- .slide: data-background-image="./assets/MainSlide.png"; .slide: data-background-size="cover" -->
 
-### Demo: _Where is my coffee_?
+### Demo: _Where can I get my coffee_?
 
 <div class="two-col">
 <div class="lists">
